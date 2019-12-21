@@ -1,6 +1,8 @@
 package com.gojek
 
 import android.app.Application
+import com.gojek.assignment.api.di.NetworkModule
+import com.gojek.assignment.api.di.NetworkModuleImpl
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -13,6 +15,7 @@ class App : Application() {
 
         // all the app functionality related modules here
         val appModule = module {
+            single<NetworkModule> { NetworkModuleImpl() }
         }
 
         // start dependency injection with koin
