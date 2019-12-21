@@ -1,4 +1,4 @@
-package com.gojek.assignment.ui.repositories
+package com.gojek.assignment.ui.repositories.trending
 
 
 import android.os.Bundle
