@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GoJekAndroidAssignment</string>
+    <string name="overflow_menu_content_desc_msg">open sort by options</string>
 </resources>
