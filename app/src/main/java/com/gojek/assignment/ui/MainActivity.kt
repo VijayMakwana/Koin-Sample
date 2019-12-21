@@ -1,7 +1,8 @@
-package com.gojek.assignment
+package com.gojek.assignment.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.gojek.assignment.R
 
 class MainActivity : AppCompatActivity() {
 
