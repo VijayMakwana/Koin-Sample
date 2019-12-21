@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="androidx.lifecycle.LiveData" />
+
+        <import type="com.gojek.assignment.api.helper.Result" />
+
+        <import type="com.gojek.assignment.api.helper.Result.State" />
+
+        <import type="com.gojek.assignment.api.helper.AlertErrorHandler" />
+
+        <variable
+            name="result"
+            type="LiveData&lt;Result&lt;Object>>" />
+
+        <variable
+            name="errorHandler"
+            type="com.gojek.assignment.api.helper.ErrorHandler" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        app:errorHandler="@{errorHandler}"
+        app:result="@{result}"
+        app:visibleIf="@{result != null}">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            app:visibleIf="@{result.state == State.LOADING}" />
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            visibleIf="@{result.state == State.LOADING &amp;&amp; result.data == null}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+</layout>
