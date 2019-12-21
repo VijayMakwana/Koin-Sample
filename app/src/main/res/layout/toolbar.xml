@@ -15,6 +15,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:fontFamily="@font/roboto_medium"
+        android:textColor="@color/colorOnPrimary"
+        android:textSize="21sp"
         tools:text="Trending" />
 
     <ImageView
