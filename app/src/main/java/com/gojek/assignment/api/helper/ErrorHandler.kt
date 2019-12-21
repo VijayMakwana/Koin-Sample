@@ -10,21 +10,23 @@ interface ErrorHandler {
 }
 
 class AlertErrorHandler(
-    private val context: Context,
+    private val context: Context?,
     private val isCancelable: Boolean = true,
     private var isNetworkAvailable: ((isNetworkAvailable: Boolean) -> Unit)
 ) : ErrorHandler {
 
     override fun onError(resource: Result<*>) {
-        if (context.isNetworkAvailable()) {
-            val builder = AlertDialog.Builder(context)
-            builder.setCancelable(isCancelable)
-            builder.setPositiveButton(android.R.string.yes) { dialogInterface, _ ->
-                dialogInterface.dismiss()
+        context?.let { ctx ->
+            if (ctx.isNetworkAvailable()) {
+                val builder = AlertDialog.Builder(ctx)
+                builder.setCancelable(isCancelable)
+                builder.setPositiveButton(android.R.string.yes) { dialogInterface, _ ->
+                    dialogInterface.dismiss()
+                }
+                builder.show()
+            } else {
+                isNetworkAvailable.invoke(false)
             }
-            builder.show()
-        } else {
-            isNetworkAvailable.invoke(false)
         }
     }
 }
