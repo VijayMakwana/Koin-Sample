@@ -7,4 +7,6 @@
     <string name="nointernet_message">An alien is probably blocking your signal.</string>
     <string name="repo_content_desc_author_avatar">Author avatar</string>
     <string name="dot">•</string>
+    <string name="sort_by_stars">Sort by stars</string>
+    <string name="sort_by_name">Sort by name</string>
 </resources>

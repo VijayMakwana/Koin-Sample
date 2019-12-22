@@ -27,4 +27,14 @@ class TrendingRepoViewModel(private val repoRepository: RepoRepository) : ViewMo
             }.asLiveData().observeForever { mReposResult.value = it }
     }
 
+    // sort by star
+    fun sortByStar() {
+        mReposResult.value = Result.success(repoList.value?.sortedBy { it.stars })
+    }
+
+    // sort by name
+    fun sortByName() {
+        mReposResult.value = Result.success(repoList.value?.sortedBy { it.name })
+    }
+
 }

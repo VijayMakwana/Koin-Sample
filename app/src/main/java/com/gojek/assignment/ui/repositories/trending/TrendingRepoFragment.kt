@@ -3,8 +3,10 @@ package com.gojek.assignment.ui.repositories.trending
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.PopupMenu
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -48,7 +50,9 @@ class TrendingRepoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // setup toolbar
-        setUpToolbar(mBinding.toolbar, getString(R.string.title_trending)) {}
+        setUpToolbar(mBinding.toolbar, getString(R.string.title_trending)) {
+            showOverFlowMenu()
+        }
 
         // set error handler
         setupErrorHandler()
@@ -132,4 +136,30 @@ class TrendingRepoFragment : Fragment() {
         mBinding.listTrendingRepo.adapter?.notifyItemChanged(position)
     }
 
+    /**
+     * show overflow menu with the sort by options
+     * where user get the sorted result by star and name
+     */
+    private fun showOverFlowMenu() {
+        context?.let { ctx ->
+            val popup = PopupMenu(ctx, mBinding.toolbar.imageOverflowMenu)
+            popup.menuInflater.inflate(R.menu.menu_overflow, popup.menu)
+            popup.show()
+
+            // set click
+            popup.setOnMenuItemClickListener { item: MenuItem? ->
+                when (item?.itemId) {
+                    R.id.btnSortByStar -> {
+                        mViewModel.sortByStar() // repo sorted by the stars
+                    }
+
+                    R.id.btnSortByName -> {
+                        mViewModel.sortByName() // repo sorted by the names
+                    }
+
+                }
+                return@setOnMenuItemClickListener true
+            }
+        }
+    }
 }
