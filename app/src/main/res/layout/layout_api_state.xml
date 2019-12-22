@@ -29,14 +29,6 @@
         app:result="@{result}"
         app:visibleIf="@{result != null}">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clickable="true"
-            android:focusable="true"
-            app:visibleIf="@{result.state == State.LOADING}" />
-
-
         <ProgressBar
             android:id="@+id/progressBar"
             visibleIf="@{result.state == State.LOADING &amp;&amp; result.data == null}"
