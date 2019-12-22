@@ -22,16 +22,15 @@
     </data>
 
     <FrameLayout
+        visibleIf="@{result.state == State.LOADING &amp;&amp; result.data == null}"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:animateLayoutChanges="true"
         app:errorHandler="@{errorHandler}"
-        app:result="@{result}"
-        app:visibleIf="@{result != null}">
+        app:result="@{result}">
 
         <ProgressBar
             android:id="@+id/progressBar"
-            visibleIf="@{result.state == State.LOADING &amp;&amp; result.data == null}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
