@@ -17,4 +17,7 @@
 
     <!--Used in repo item for display repo language dot-->
     <color name="colorRepoLanguageDot">#ED646A</color>
+    <color name="colorBgNoInternet">#FAFAFA</color>
+    <color name="colorNoInternetTextPrimary">#4A4A4A</color>
+    <color name="colorNoInternetTextSecondary">#929292</color>
 </resources>
