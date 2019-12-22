@@ -8,7 +8,6 @@ import androidx.databinding.OnRebindCallback
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
-import com.helprapp.android.utils.liveadapter.*
 
 class LiveAdapter private constructor(
     private val data: LiveData<out List<Any>>?,
