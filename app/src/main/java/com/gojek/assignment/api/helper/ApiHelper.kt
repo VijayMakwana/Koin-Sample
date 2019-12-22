@@ -68,6 +68,7 @@ fun handleNoInternet(
     if (!isNetworkAvailable) {
         binding.root.show()
         binding.btnRetry.setOnClickListener {
+            binding.root.hide()
             retryFunc?.invoke() // call retry function
         }
     } else {
