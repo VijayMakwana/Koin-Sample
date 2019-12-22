@@ -5,6 +5,7 @@ import android.graphics.PorterDuff
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.request.RequestOptions
 import com.gojek.assignment.R
 import com.gojek.assignment.api.helper.ErrorHandler
@@ -59,5 +60,12 @@ object BindingAdapters {
         }
     }
 
+    @JvmStatic
+    @BindingAdapter("handleSwipeRefresh")
+    fun setIsRefreshing(swipeRefreshLayout: SwipeRefreshLayout, result: Result<*>?) {
+        if (result?.state == Result.State.SUCCESS || result?.state == Result.State.ERROR) {
+            swipeRefreshLayout.isRefreshing = false
+        }
+    }
 
 }
