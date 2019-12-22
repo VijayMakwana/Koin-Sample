@@ -3,6 +3,8 @@
     <string name="overflow_menu_content_desc_msg">open sort by options</string>
     <string name="title_trending">Trending</string>
     <string name="btn_retry">Retry</string>
-    <string name="something_went_wrong">Something went wrong...</string>
+    <string name="something_went_wrong">Something went wrong…</string>
     <string name="nointernet_message">An alien is probably blocking your signal.</string>
+    <string name="repo_content_desc_author_avatar">Author avatar</string>
+    <string name="dot">•</string>
 </resources>

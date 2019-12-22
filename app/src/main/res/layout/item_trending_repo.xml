@@ -1,131 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:animateLayoutChanges="true"
-    android:background="?attr/selectableItemBackground"
-    android:orientation="vertical"
-    android:padding="16dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/imageProfile"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_alignTop="@+id/textAuthorName"
-        android:layout_alignBottom="@id/textRepoName"
-        android:src="@mipmap/ic_launcher_round" />
+    <data>
 
-    <TextView
-        android:id="@+id/textAuthorName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_toEndOf="@+id/imageProfile"
-        android:ellipsize="end"
-        android:fontFamily="@font/roboto_regular"
-        android:maxLines="1"
-        android:text="Jake Warton"
-        android:textColor="@color/colorOnSurface"
-        android:textSize="12sp" />
-
-    <TextView
-        android:id="@+id/textRepoName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textAuthorName"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="6dp"
-        android:layout_toEndOf="@+id/imageProfile"
-        android:fontFamily="@font/roboto_medium"
-        android:text="Jake Warton "
-        android:textColor="@color/colorOnSurface"
-        android:textSize="15sp" />
+        <variable
+            name="repo"
+            type="com.gojek.assignment.api.model.RepoModel" />
+    </data>
 
     <RelativeLayout
-        android:id="@+id/repoDescContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textRepoName"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="8dp">
+        android:animateLayoutChanges="true"
+        android:background="?attr/selectableItemBackground"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageProfile"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignTop="@+id/textAuthorName"
+            android:layout_alignBottom="@id/textRepoName"
+            android:contentDescription="@string/repo_content_desc_author_avatar"
+            android:scaleType="centerCrop"
+            app:circleImageUrl="@{repo.avatar}"
+            tools:src="@mipmap/ic_launcher_round" />
 
         <TextView
-            android:id="@+id/textRepoDesc"
+            android:id="@+id/textAuthorName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_regular"
-            android:text="Jake Warton hhd hhsijisji kjdsijsidj  nsioihdojhs sidisojddsijdsij"
-            android:textColor="@color/colorOnSurface"
-            android:textSize="12sp" />
-
-        <ImageView
-            android:id="@+id/imageLang"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
-            android:layout_below="@id/textRepoDesc"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/repo_language_dot" />
-
-        <TextView
-            android:id="@+id/textRepoLang"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/textRepoDesc"
-            android:layout_alignTop="@+id/imageLang"
-            android:layout_alignBottom="@+id/imageLang"
-            android:layout_marginStart="4dp"
-            android:layout_toEndOf="@+id/imageLang"
-            android:fontFamily="@font/roboto_regular"
-            android:text="C++"
-            android:textColor="@color/colorOnSurface"
-            android:textSize="12sp" />
-
-        <ImageView
-            android:id="@+id/imageStar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/textRepoDesc"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_toEndOf="@+id/textRepoLang"
-            android:src="@drawable/ic_repo_star" />
+            android:layout_toEndOf="@+id/imageProfile"
+            android:ellipsize="end"
+            android:fontFamily="@font/roboto_regular"
+            android:maxLines="1"
+            android:text="@{repo.author}"
+            android:textColor="@color/colorOnSurface"
+            android:textSize="12sp"
+            tools:text="Jake Warton" />
 
         <TextView
-            android:id="@+id/textRepoStar"
-            android:layout_width="wrap_content"
+            android:id="@+id/textRepoName"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textRepoDesc"
-            android:layout_alignTop="@+id/imageStar"
-            android:layout_alignBottom="@+id/imageStar"
-            android:layout_marginStart="4dp"
-            android:layout_toEndOf="@+id/imageStar"
-            android:fontFamily="@font/roboto_regular"
-            android:text="14,236"
-            android:textColor="@color/colorOnSurface"
-            android:textSize="12sp" />
-
-        <ImageView
-            android:id="@+id/imageFork"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/textRepoDesc"
+            android:layout_below="@+id/textAuthorName"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_toEndOf="@+id/textRepoStar"
-            android:src="@drawable/ic_repo_fork" />
-
-        <TextView
-            android:id="@+id/textRepoFork"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/textRepoDesc"
-            android:layout_alignTop="@+id/imageFork"
-            android:layout_alignBottom="@+id/imageFork"
-            android:layout_marginStart="4dp"
-            android:layout_toEndOf="@+id/imageFork"
-            android:fontFamily="@font/roboto_regular"
-            android:text="14,236"
+            android:layout_marginTop="6dp"
+            android:layout_toEndOf="@+id/imageProfile"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@{repo.name}"
             android:textColor="@color/colorOnSurface"
-            android:textSize="12sp" />
+            android:textSize="15sp"
+            tools:text="Retrofit" />
+
+        <RelativeLayout
+            android:id="@+id/repoDescContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textRepoName"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/textRepoDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@{repo.description}"
+                android:textColor="@color/colorOnSurface"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/imageLang"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_below="@id/textRepoDesc"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_bullet"
+                app:colorFilter="{repo.languageColor}" />
+
+            <TextView
+                android:id="@+id/textRepoLang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textRepoDesc"
+                android:layout_alignTop="@+id/imageLang"
+                android:layout_alignBottom="@+id/imageLang"
+                android:layout_marginStart="4dp"
+                android:layout_toEndOf="@+id/imageLang"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@{repo.language}"
+                android:textColor="@color/colorOnSurface"
+                android:textSize="12sp"
+                tools:text="C++" />
+
+            <ImageView
+                android:id="@+id/imageStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textRepoDesc"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@+id/textRepoLang"
+                android:src="@drawable/ic_repo_star" />
+
+            <TextView
+                android:id="@+id/textRepoStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textRepoDesc"
+                android:layout_alignTop="@+id/imageStar"
+                android:layout_alignBottom="@+id/imageStar"
+                android:layout_marginStart="4dp"
+                android:layout_toEndOf="@+id/imageStar"
+                android:fontFamily="@font/roboto_regular"
+                android:text='@{""+repo.stars}'
+                android:textColor="@color/colorOnSurface"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/imageFork"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textRepoDesc"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@+id/textRepoStar"
+                android:src="@drawable/ic_repo_fork" />
+
+            <TextView
+                android:id="@+id/textRepoFork"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textRepoDesc"
+                android:layout_alignTop="@+id/imageFork"
+                android:layout_alignBottom="@+id/imageFork"
+                android:layout_marginStart="4dp"
+                android:layout_toEndOf="@+id/imageFork"
+                android:fontFamily="@font/roboto_regular"
+                android:text='@{""+repo.forks}'
+                android:textColor="@color/colorOnSurface"
+                android:textSize="12sp" />
+        </RelativeLayout>
     </RelativeLayout>
-</RelativeLayout>
+</layout>
