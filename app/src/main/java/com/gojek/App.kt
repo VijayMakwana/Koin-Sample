@@ -19,7 +19,7 @@ class App : Application() {
 
         // all the app functionality related modules here
         val appModule = module {
-            single<NetworkModule> { NetworkModuleImpl() }
+            single<NetworkModule> { NetworkModuleImpl(androidContext()) }
 
             single<RepoRepository> { RepoRepositoryImpl(get()) }
 
