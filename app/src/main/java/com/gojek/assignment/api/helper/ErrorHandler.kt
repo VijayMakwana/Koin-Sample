@@ -6,7 +6,7 @@ import com.gojek.assignment.utils.isNetworkAvailable
 
 
 interface ErrorHandler {
-    fun onError(resource: Result<*>)
+    fun onError(result: Result<*>)
 }
 
 class AlertErrorHandler(
@@ -15,11 +15,13 @@ class AlertErrorHandler(
     private var isNetworkAvailable: ((isNetworkAvailable: Boolean) -> Unit)
 ) : ErrorHandler {
 
-    override fun onError(resource: Result<*>) {
+    override fun onError(result: Result<*>) {
         context?.let { ctx ->
             if (ctx.isNetworkAvailable()) {
+                isNetworkAvailable.invoke(true)
                 val builder = AlertDialog.Builder(ctx)
                 builder.setCancelable(isCancelable)
+                builder.setMessage(result.errorMessage)
                 builder.setPositiveButton(android.R.string.yes) { dialogInterface, _ ->
                     dialogInterface.dismiss()
                 }
