@@ -90,7 +90,3 @@
 -dontskipnonpubliclibraryclasses
 -verbose
 #-------- END -------#
-
-#--- Live Adapter START ---#
--keep class com.ravikoradiya.liveadapter.** { *; }
-#-------- END -------#
