@@ -23,7 +23,7 @@ class TrendingRepoViewModel(private val repoRepository: RepoRepository) : ViewMo
     fun fetchTrendingRepos() = viewModelScope.launch {
         repoRepository.getTrendingRepos()
             .onStart {
-                emit(Result.loading(repoList.value))
+                emit(Result.loading(if (repoList.value.isNullOrEmpty()) null else repoList.value))
             }.asLiveData().observeForever { mReposResult.value = it }
     }
 
