@@ -22,8 +22,7 @@
             android:id="@+id/imageProfile"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:layout_alignTop="@+id/textAuthorName"
-            android:layout_alignBottom="@id/textRepoName"
+            android:layout_marginTop="8dp"
             android:contentDescription="@string/repo_content_desc_author_avatar"
             android:scaleType="centerCrop"
             app:circleImageUrl="@{repo.avatar}"
@@ -63,7 +62,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textRepoName"
             android:layout_marginStart="48dp"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/textRepoDesc"
