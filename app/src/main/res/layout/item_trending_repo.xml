@@ -81,7 +81,7 @@
                 android:layout_below="@id/textRepoDesc"
                 android:layout_marginTop="8dp"
                 android:src="@drawable/ic_bullet"
-                app:colorFilter="{repo.languageColor}" />
+                app:colorFilter="@{repo.languageColor}" />
 
             <TextView
                 android:id="@+id/textRepoLang"
