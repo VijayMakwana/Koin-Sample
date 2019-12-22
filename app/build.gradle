@@ -72,8 +72,6 @@ dependencies {
     // Koin AndroidX ViewModel features
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
 
-    implementation 'com.github.RaviKoradiya:LiveAdapter:1.2.3' // recyclerview adapter helper
-
     testImplementation "org.koin:koin-test:$koin_version"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
