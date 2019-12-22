@@ -1,5 +1,8 @@
 package com.gojek.assignment.api.helper
 
+import com.gojek.assignment.databinding.LayoutNointernetBinding
+import com.gojek.assignment.utils.hide
+import com.gojek.assignment.utils.show
 import kotlinx.coroutines.CompletableDeferred
 import org.json.JSONObject
 import retrofit2.Call
@@ -22,7 +25,7 @@ suspend fun <T : Any> Call<T>.getResult(data: T? = null): Result<T> {
 
         }
     } catch (throwable: Throwable) {
-        return Result.error(data = data, errorMessage = throwable.message)
+        return Result.error(data = data, errorMessage = throwable.localizedMessage)
     }
 }
 
@@ -51,4 +54,23 @@ fun <T> Call<T>.enqueueDeferredResponse(callback: Callback<T>? = null): Completa
         }
     })
     return deferred
+}
+
+/**
+ * manage no internet screen visibility
+ * and retry callback
+ */
+fun handleNoInternet(
+    binding: LayoutNointernetBinding,
+    isNetworkAvailable: Boolean,
+    retryFunc: (() -> Unit)? = null
+) {
+    if (!isNetworkAvailable) {
+        binding.root.show()
+        binding.btnRetry.setOnClickListener {
+            retryFunc?.invoke() // call retry function
+        }
+    } else {
+        binding.root.hide()
+    }
 }
