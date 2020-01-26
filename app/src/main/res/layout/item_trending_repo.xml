@@ -7,7 +7,7 @@
 
         <variable
             name="repo"
-            type="com.gojek.assignment.api.model.RepoModel" />
+            type="com.koinsample.api.model.RepoModel" />
     </data>
 
     <RelativeLayout

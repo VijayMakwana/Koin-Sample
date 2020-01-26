@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GoJekAndroidAssignment</string>
+    <string name="app_name">Koin-Sample</string>
     <string name="overflow_menu_content_desc_msg">open sort by options</string>
     <string name="title_trending">Trending</string>
     <string name="btn_retry">Retry</string>
