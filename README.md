@@ -10,7 +10,7 @@ This application shows the current trending Github repositories fetched from a p
 * App have the full offline support. cache data will be shown for the duration of 2 hours.
 * App have the pull to refresh for fetch data from remote.
 * There are sort by options available for sort repositories by star and name.
-* Every task progress is clearly shown in the git commit history. 
+* Implemented this app with Koin DI
 
 
 
