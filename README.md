@@ -1,4 +1,4 @@
-# GoJek Android Assignment
+# Koin Sample
 
 ## Description
 
