@@ -2,6 +2,7 @@ package com.koinsample.utils
 
 import android.graphics.Color
 import android.graphics.PorterDuff
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
@@ -55,8 +56,14 @@ object BindingAdapters {
     @JvmStatic
     @BindingAdapter("colorFilter")
     fun colorFilter(imageView: ImageView, color: String?) {
+        Log.d("TAG", "colorFilter: $color")
+
         color?.let {
-            imageView.setColorFilter(Color.parseColor(it), PorterDuff.Mode.SRC_ATOP)
+            try {
+                imageView.setColorFilter(Color.parseColor(it), PorterDuff.Mode.SRC_ATOP)
+            } catch (e: Exception) {
+                imageView.setColorFilter(Color.parseColor("#CCCCCC"), PorterDuff.Mode.SRC_ATOP)
+            }
         }
     }
 
