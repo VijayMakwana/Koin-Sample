@@ -6,11 +6,11 @@ This application shows the current trending Github repositories fetched from a p
 
 * App is fully functional with managed every states like data loading, success and error with retry button.
 * All the repository item is expanded by being tapped and collaped when tap again, at a time only one item will expand.
-* App data is services configurration changes
+* App data is survive configuration changes
 * App have the full offline support. cache data will be shown for the duration of 2 hours.
 * App have the pull to refresh for fetch data from remote.
 * There are sort by options available for sort repositories by star and name.
-* Implemented this app with Koin
+* Implemented this app with Koin (DI)
 
 
 
