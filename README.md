@@ -42,7 +42,7 @@ This application shows the current trending Github repositories fetched from a p
   * org.jetbrains.kotlinx:kotlinx-coroutines-android
   * org.jetbrains.kotlinx:kotlinx-coroutines-test
 
-*  [Glide](https://github.com/bumptech/glide) - An image loading and caching library for Android focused on smooth scrolling 
+* [Glide](https://github.com/bumptech/glide) - An image loading and caching library for Android focused on smooth scrolling 
   * com.github.bumptech.glide:glide
   * com.github.bumptech.glide:compiler
 
